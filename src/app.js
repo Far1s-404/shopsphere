@@ -23,6 +23,9 @@ app.get('/', (req, res) => {
 const productRoutes = require('../routes/products');
 app.use('/products', productRoutes);
 
+const authRoutes = require('../routes/auth');
+app.use('/auth', authRoutes);
+
 
 const PORT = 3000
 app.listen(PORT, () => {
