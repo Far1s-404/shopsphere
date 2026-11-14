@@ -27,6 +27,10 @@ const authRoutes = require('../routes/auth');
 app.use('/auth', authRoutes);
 
 
+const profileRoutes = require('../routes/profile');
+app.use('/profile', profileRoutes);
+
+
 const PORT = 3000
 app.listen(PORT, () => {
     console.log(`ShopSphere is running on port ${PORT}`);
