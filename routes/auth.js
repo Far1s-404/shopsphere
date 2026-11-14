@@ -9,7 +9,7 @@ const jwt = require('jsonwebtoken');
 // ==========================================
 router.post('/register', async (req, res) => {
     const { name, email, password } = req.body;
-
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (
         typeof name !== 'string' ||
         !name.trim() ||
@@ -20,6 +20,11 @@ router.post('/register', async (req, res) => {
     ) {
         return res.status(400).json({
             message: 'Invalid or missing user data'
+        });
+    }
+    if (!emailRegex.test(email)) {
+        return res.status(400).json({
+            message: 'Invalid email format'
         });
     }
 
