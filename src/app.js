@@ -30,6 +30,9 @@ app.use('/auth', authRoutes);
 const profileRoutes = require('../routes/profile');
 app.use('/profile', profileRoutes);
 
+const cartRoutes = require('../routes/cart');
+app.use('/cart', cartRoutes);
+
 
 const PORT = 3000
 app.listen(PORT, () => {
