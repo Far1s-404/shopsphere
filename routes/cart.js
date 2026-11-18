@@ -42,7 +42,7 @@ router.post('/', verifyToken, async (req, res) => {
 
 
 router.delete('/:id', verifyToken, async (req,res) => {
-    const productId = req.params.id
+    const productId = Number(req.params.id);
     if (!Number.isInteger(productId) || productId <= 0) {
         return res.status(400).json({message : 'Invalid product ID'})
     }
